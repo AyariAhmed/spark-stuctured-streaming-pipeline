@@ -45,6 +45,7 @@ spark = SparkSession.builder \
     .appName("Spark Structured Streaming from Kafka") \
     .getOrCreate()
 
+# Subscription to kafka topics
 sdfRides = spark \
     .readStream \
     .format("kafka") \
@@ -83,12 +84,13 @@ def rides_data_cleaning(ridesSdf):
 
 sdfRides = rides_data_cleaning(sdfRides)
 
-# watermarks are used for efficient joins
+# Watermark defines how much a timestamp can lag behind the maximum event time seen so far
+# Are used for efficient joins
 # Apply watermarks on event-time columns
 sdfFaresWithWatermark = sdfFares \
     .selectExpr("rideId AS rideId_fares", "startTime", "totalFare", "tip") \
     .withWatermark("startTime", "30 minutes")  # maximal delay
-
+# A Fares event would be kept up to 30 minutes to match it with Ride even
 sdfRidesWithWatermark = sdfRides \
     .selectExpr("rideId", "endTime", "driverId", "taxiId",
                 "startLon", "startLat", "endLon", "endLat") \
