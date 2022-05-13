@@ -1,6 +1,10 @@
-### Spark structured streaming && kafka
+## Spark structured streaming && kafka
 Spark Structured Streaming is the new Spark stream processing approach, available from Spark 2.0 and stable from Spark 2.2. Spark Structured Streaming processing engine is built on the Spark SQL engine and both share the same high-level API.
 
+### Implemeted Solution:
+![280551185_3427546784198370_1373207074843322138_n](https://user-images.githubusercontent.com/56363189/168400965-c257e59c-457b-4e8f-ae4c-a6e75433024d.png)
+
+### Notes and instructions:
 - used versions : spark-2.4.0 and kafka_2.12-2.2.0
 ```bash
 # After downloading the appropriate zipped filed
