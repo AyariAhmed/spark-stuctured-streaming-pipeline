@@ -49,4 +49,8 @@ kafka/bin/kafka-console-consumer.sh \
 kafka/bin/kafka-console-consumer.sh \
   --bootstrap-server localhost:9092 --topic taxifares --from-beginning
 ```
-
+- Run the pipeline through: 
+```bash
+spark/bin/spark-submit   --master local --driver-memory 4g   --num-executors 2 --executor-memory 4g   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0  sstreaming-spark-out.py 
+```
+> (Data streams should restarted)
