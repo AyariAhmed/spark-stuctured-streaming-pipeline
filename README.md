@@ -41,7 +41,7 @@ kafka/bin/kafka-topics.sh \
   > /dev/null ) &
 
 ```
-> Notice the difference in sleep time: since the rides dataset is larger than the fares dataset, the mustn't be consumed at the same rate otherwide stream-stream joins won't be possible. (10000 messages/event)
+> Notice the difference in sleep time: since the rides dataset is larger than the fares dataset, they mustn't be consumed at the same rate otherwide stream-stream joins won't be possible. (10000 messages/event)
 - To verify that the data was successfully registered on the specified topics
 ```bash
 kafka/bin/kafka-console-consumer.sh \
@@ -53,4 +53,4 @@ kafka/bin/kafka-console-consumer.sh \
 ```bash
 spark/bin/spark-submit   --master local --driver-memory 4g   --num-executors 2 --executor-memory 4g   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0  sstreaming-spark-out.py 
 ```
-> (Data streams should restarted)
+> (Data streams should be restarted when **Batch 0** appears in the console)
