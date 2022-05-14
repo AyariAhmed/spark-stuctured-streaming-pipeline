@@ -59,3 +59,7 @@ kafka/bin/kafka-console-consumer.sh \
 spark/bin/spark-submit   --master local --driver-memory 4g   --num-executors 2 --executor-memory 4g   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0  sstreaming-spark-out.py 
 ```
 > (Data streams should be restarted when **Batch 0** appears in the console)
+
+### Pipeline execution result:
+![execution_result](https://user-images.githubusercontent.com/56363189/168439208-6c3eef13-af41-4882-b629-73a455bb92d4.png)
+
