@@ -22,6 +22,12 @@ ln -sf spark-2.4.0-bin-hadoop2.7 spark
 cp spark/conf/log4j.properties.template spark/conf/log4j.properties
 sed -i -e 's/log4j.rootCategory=INFO/log4j.rootCategory=WARN/g' spark/conf/log4j.properties
 ```
+
+- Install project dependencies
+```bash
+source env/bin/activate # python virtual environment
+pip install -r requirements.txt
+```
 - start zookeeper server and kafka server,then create two kafka topics `taxirides` and `taxifares`
 ```bash
 kafka/bin/zookeeper-server-start.sh -daemon kafka/config/zookeeper.properties
